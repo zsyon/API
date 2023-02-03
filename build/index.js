@@ -27,13 +27,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var dotenv = __importStar(require("dotenv")); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config();
+var dotenv = __importStar(require("dotenv"));
 var app = (0, express_1.default)();
-var port = process.env.PORT;
+var result = dotenv.config({ debug: true });
+// If is there a any error in dotenv config
+if (result.error) {
+    throw result.error;
+}
+var port = process.env.PORT || 3000;
 app.get('/', function (request, response) {
     response.send('Hello World!');
 });
 app.listen(port, function () {
-    console.log('Started application on port %d', port);
+    console.log("Started application on port:".concat(port));
 });

@@ -1,7 +1,13 @@
 import express from 'express';
-import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config();
+import * as dotenv from 'dotenv';
 var app = express();
+const result = dotenv.config({ debug: true });
+
+// If is there a any error in dotenv config
+if (result.error) {
+  throw result.error;
+}
+
 const port = process.env.PORT || 3000;
 app.get('/', function (request: any, response: any) {
   response.send('Hello World!');
