@@ -7,4 +7,4 @@ router.route('/login').get(AuthController.loginUser); // http://localhost:3000/a
 //router.route('/login').patch(...);
 //router.route('/login').delete(...);
 
-export { router as testRouter };
+export { router as authRouter };
