@@ -1,5 +1,7 @@
-const loginUser = async (req: any, res: any, nex: any) => {
-  res.send('login');
-};
+class AuthController {
+  static async loginUser(req: any, res: any, nex: any) {
+    res.send('login');
+  }
+}
 
-export { loginUser };
+export default AuthController;
